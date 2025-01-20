@@ -21,6 +21,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="camera.py" />
     <Compile Include="consts.py" />
     <Compile Include="draw.py" />
     <Compile Include="game_scene.py" />
