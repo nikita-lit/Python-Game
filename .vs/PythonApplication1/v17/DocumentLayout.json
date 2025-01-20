@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\Users\\opilane\\source\\repos\\Litvinenko_TARpv24\\Python-Game\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{62ADFAF6-7603-4764-A71B-8778309E8F2A}|PythonApplication1.pyproj|C:\\Users\\opilane\\source\\repos\\Litvinenko_TARpv24\\Python-Game\\main.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{62ADFAF6-7603-4764-A71B-8778309E8F2A}|PythonApplication1.pyproj|solutionrelative:main.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62ADFAF6-7603-4764-A71B-8778309E8F2A}|PythonApplication1.pyproj|C:\\Users\\opilane\\source\\repos\\Litvinenko_TARpv24\\Python-Game\\global_vars.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{62ADFAF6-7603-4764-A71B-8778309E8F2A}|PythonApplication1.pyproj|solutionrelative:global_vars.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62ADFAF6-7603-4764-A71B-8778309E8F2A}|PythonApplication1.pyproj|C:\\Users\\opilane\\source\\repos\\Litvinenko_TARpv24\\Python-Game\\camera.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{62ADFAF6-7603-4764-A71B-8778309E8F2A}|PythonApplication1.pyproj|solutionrelative:camera.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{62ADFAF6-7603-4764-A71B-8778309E8F2A}|PythonApplication1.pyproj|C:\\Users\\opilane\\source\\repos\\Litvinenko_TARpv24\\Python-Game\\game_object.py||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{62ADFAF6-7603-4764-A71B-8778309E8F2A}|PythonApplication1.pyproj|solutionrelative:game_object.py||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
@@ -14,19 +26,58 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "camera.py",
+              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\Litvinenko_TARpv24\\Python-Game\\camera.py",
+              "RelativeDocumentMoniker": "camera.py",
+              "ToolTip": "C:\\Users\\opilane\\source\\repos\\Litvinenko_TARpv24\\Python-Game\\camera.py",
+              "RelativeToolTip": "camera.py",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2025-01-20T12:05:57.478Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "global_vars.py",
+              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\Litvinenko_TARpv24\\Python-Game\\global_vars.py",
+              "RelativeDocumentMoniker": "global_vars.py",
+              "ToolTip": "C:\\Users\\opilane\\source\\repos\\Litvinenko_TARpv24\\Python-Game\\global_vars.py",
+              "RelativeToolTip": "global_vars.py",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2025-01-20T11:59:45.595Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "main.py",
+              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\Litvinenko_TARpv24\\Python-Game\\main.py",
+              "RelativeDocumentMoniker": "main.py",
+              "ToolTip": "C:\\Users\\opilane\\source\\repos\\Litvinenko_TARpv24\\Python-Game\\main.py",
+              "RelativeToolTip": "main.py",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAADYAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2025-01-20T11:59:25.65Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "game_object.py",
               "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\Litvinenko_TARpv24\\Python-Game\\game_object.py",
               "RelativeDocumentMoniker": "game_object.py",
               "ToolTip": "C:\\Users\\opilane\\source\\repos\\Litvinenko_TARpv24\\Python-Game\\game_object.py",
               "RelativeToolTip": "game_object.py",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAABcAAAA7AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
-              "WhenOpened": "2025-01-20T10:50:35.165Z",
+              "WhenOpened": "2025-01-20T11:58:37.78Z",
               "EditorCaption": ""
             },
             {

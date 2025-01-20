@@ -1,8 +1,8 @@
+import global_vars as gv
 from pygame.display import update
 from pygame.math import clamp
 from mathF.vector2 import Vector2
 from consts import WORLD_WIDTH, WORLD_HEIGHT, DELTA_TIME
-import main
 
 class GameObject:
     position = Vector2(0, 0)
@@ -10,7 +10,7 @@ class GameObject:
     velocity = Vector2(0, 0)
 
     def __init__(self):
-        main.game_objects.append(self)
+        gv.game_objects.append(self)
 
     def draw(self):
         pass

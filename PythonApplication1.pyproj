@@ -25,6 +25,7 @@
     <Compile Include="consts.py" />
     <Compile Include="draw.py" />
     <Compile Include="game_scene.py" />
+    <Compile Include="global_vars.py" />
     <Compile Include="player.py" />
     <Compile Include="mathF\vector2.py" />
     <Compile Include="main.py" />
