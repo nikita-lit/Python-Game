@@ -9,7 +9,7 @@ PLAYER_SPEED = 150
 PLAYER_FRICTION = 15
 
 class Player(Entity):
-    wish_velocity = Vector2(0, 0)
+    wish_velocity = Vector2()
 
     def __init__(self):
         super().__init__()

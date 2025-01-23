@@ -1,3 +1,4 @@
+from pydoc import classname
 from global_vars import *
 from pygame.display import update
 from pygame.math import clamp
@@ -8,9 +9,12 @@ class Entity:
     position = Vector2(0, 0)
     size = Vector2(0, 0)
     velocity = Vector2(0, 0)
+    name = ""
 
-    def __init__(self):
+    def __init__(self, _position = Vector2()):
         g_Entities.append(self)
+        self.name = self.__class__
+        self.position = _position
 
     def draw(self):
         pass

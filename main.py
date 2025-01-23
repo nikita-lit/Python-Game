@@ -20,6 +20,8 @@ def run():
     g_Player = Player()
     g_Player.set_size(Vector2(45,45))
 
+    test_entity = Entity(Vector2(300, 300))
+
     while g_Running:
         g_Screen.fill((100,100,100))
 
