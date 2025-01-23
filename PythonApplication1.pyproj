@@ -29,7 +29,7 @@
     <Compile Include="player.py" />
     <Compile Include="mathF\vector2.py" />
     <Compile Include="main.py" />
-    <Compile Include="game_object.py" />
+    <Compile Include="entity.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="mathF\" />
