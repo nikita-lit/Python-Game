@@ -1,16 +1,16 @@
-import global_vars as gv
+from global_vars import *
 from pygame.display import update
 from pygame.math import clamp
 from mathF.vector2 import Vector2
 from consts import WORLD_WIDTH, WORLD_HEIGHT, DELTA_TIME
 
-class GameObject:
+class Entity:
     position = Vector2(0, 0)
     size = Vector2(0, 0)
     velocity = Vector2(0, 0)
 
     def __init__(self):
-        gv.game_objects.append(self)
+        g_Entities.append(self)
 
     def draw(self):
         pass
@@ -20,8 +20,7 @@ class GameObject:
 
     def update_position(self):
         self.position += self.velocity * DELTA_TIME
-        self.position.x = clamp(self.position.x, 0, (WORLD_WIDTH - self.size.x))
-        self.position.y = clamp(self.position.y, 0, (WORLD_HEIGHT - self.size.y))
+        self.position.clamp(Vector2(-WORLD_WIDTH,-WORLD_HEIGHT), Vector2(WORLD_WIDTH,WORLD_HEIGHT))
     
     def set_position(self, vector2):
         self.position = vector2

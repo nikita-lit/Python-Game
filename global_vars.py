@@ -1,8 +1,10 @@
-running = False
-screen = None
-player = None
-camera = None
+g_Running = False
+g_Screen = None
+g_Player = None
+g_Camera = None
 
 objects = [(100, 100), (500, 500), (1500, 1500)]
 
-game_objects = []
+g_Entities = []
+
+g_Font = None

@@ -1,13 +1,18 @@
 import string
 import math
+from pygame.math import clamp
 
 class Vector2():
-   def __init__(self, _x, _y):
+   def __init__(self, _x = 0.0, _y = 0.0):
        self.x = _x
        self.y = _y
 
    def length(self):
         return math.sqrt(self.x ** 2 + self.y ** 2)
+
+   def clamp(self, vec1, vec2):
+       self.x = clamp(self.x, vec1.x, vec2.x)
+       self.y = clamp(self.y, vec1.y, vec2.y)
 
    def normalize(self):
         length = self.length()
@@ -36,7 +41,7 @@ class Vector2():
    @staticmethod
    def lerp(start, target, t):
         return start + (target - start) * t
-    
+
    x = 0.0
    y = 0.0
 
