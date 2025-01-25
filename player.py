@@ -1,9 +1,11 @@
 import pygame
 import draw
+from consts import SCREEN_WIDTH, SCREEN_HEIGHT, WORLD_WIDTH, WORLD_HEIGHT, DELTA_TIME
 from pygame.math import clamp
 from entity import Entity
 from mathF.vector2 import Vector2
-from consts import SCREEN_WIDTH, SCREEN_HEIGHT, WORLD_WIDTH, WORLD_HEIGHT, DELTA_TIME
+import global_vars as gv
+from camera import world_to_screen
 
 PLAYER_SPEED = 150
 PLAYER_FRICTION = 15
@@ -31,9 +33,6 @@ class Player(Entity):
             self.wish_velocity.y = PLAYER_SPEED
         else:
             self.wish_velocity.y = 0
-
-        if keys[pygame.K_r]:
-            self.position = Vector2()
 
     def update_position(self):
         self.velocity = Vector2.lerp(self.velocity, self.wish_velocity, (PLAYER_FRICTION/100))

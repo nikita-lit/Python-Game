@@ -1,8 +1,8 @@
-g_Running = False
-g_Screen = None
-g_Player = None
-g_Camera = None
+Running = False
+Screen = None
+Player = None
+Camera = None
 
-g_Entities = []
+Entities = []
 
-g_Font = None
+Font = None

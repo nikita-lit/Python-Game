@@ -1,5 +1,4 @@
-from pydoc import classname
-from global_vars import *
+import global_vars as gv
 from pygame.display import update
 from pygame.math import clamp
 from mathF.vector2 import Vector2
@@ -12,7 +11,7 @@ class Entity:
     name = ""
 
     def __init__(self, _position = Vector2()):
-        g_Entities.append(self)
+        gv.Entities.append(self)
         self.name = self.__class__
         self.position = _position
 

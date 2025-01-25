@@ -3,6 +3,7 @@ from consts import SCREEN_WIDTH, SCREEN_HEIGHT, WORLD_WIDTH, WORLD_HEIGHT
 
 class Camera():
     position = Vector2(0, 0)
+    zoom = 0.0;
 
 def clamp_camera(camera_pos):
     camera_pos.x = max(0, min(camera_pos.x, WORLD_WIDTH - SCREEN_WIDTH))
@@ -10,5 +11,5 @@ def clamp_camera(camera_pos):
     return camera_pos
 
 def world_to_screen(world_pos, camera_pos):
-    screen_pos = world_pos - camera_pos
+    screen_pos = world_pos - (camera_pos + Vector2(-SCREEN_WIDTH/2, -SCREEN_HEIGHT/2))
     return screen_pos
