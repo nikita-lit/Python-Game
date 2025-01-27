@@ -1,4 +1,5 @@
 ﻿import pygame
+import random
 from consts import SCREEN_WIDTH, SCREEN_HEIGHT, WORLD_WIDTH, WORLD_HEIGHT, FPS
 import global_vars as gv
 from player import *
@@ -9,10 +10,11 @@ pygame.init()
 
 def run():
     gv.Font = pygame.font.Font(None, 36)
+    gv.Font2 = pygame.font.Font(None, 22)
     clock = pygame.time.Clock()
 
     gv.Screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-    pygame.display.set_caption("Pygame")
+    pygame.display.set_caption("Python Game")
 
     gv.Running = True
 
@@ -20,7 +22,11 @@ def run():
     gv.Player = Player()
     gv.Player.set_size(Vector2(45,45))
 
-    test_entity = Entity(Vector2(300, 300))
+    for i in range(5):
+        x = random.randint(-WORLD_WIDTH, WORLD_WIDTH)
+        y = random.randint(-WORLD_HEIGHT, WORLD_HEIGHT)
+        test_entity = Entity(Vector2(x, y))
+        test_entity.set_size(Vector2(15, 15))
 
     while gv.Running:
         gv.Screen.fill((100,100,100))
@@ -30,33 +36,25 @@ def run():
                 gv.Running = False
 
         keys = pygame.key.get_pressed()
-        if keys[pygame.K_UP]:
-            gv.Camera.position.y -= 5
-        if keys[pygame.K_DOWN]:
-            gv.Camera.position.y += 5
-        if keys[pygame.K_LEFT]:
-            gv.Camera.position.x -= 5
-        if keys[pygame.K_RIGHT]:
-            gv.Camera.position.x += 5
-
         if keys[pygame.K_r]:
             gv.Player.position = Vector2()
             gv.Camera.position = Vector2()
 
-        scene_screen_pos = world_to_screen(Vector2(-WORLD_WIDTH, -WORLD_HEIGHT), gv.Camera.position)
-        pygame.draw.rect(gv.Screen, (45,45,45), pygame.Rect(scene_screen_pos.x, scene_screen_pos.y, (WORLD_WIDTH+WORLD_WIDTH), (WORLD_HEIGHT+WORLD_HEIGHT)))
+        draw.rect((45,45,45), pygame.Rect(-WORLD_WIDTH, -WORLD_HEIGHT, (WORLD_WIDTH+WORLD_WIDTH), (WORLD_HEIGHT+WORLD_HEIGHT)), 5)
+
+        gv.Entities.sort(key=lambda ent:ent.position.y)
 
         for ent in gv.Entities:
-            world_pos = ent.position
-            screen_pos = world_to_screen(world_pos, gv.Camera.position)
+            ent.draw()
+            if not isinstance(ent, Player):
+                ent.move_to(gv.Player.position)
 
-            pygame.draw.circle(gv.Screen, (255, 0, 0), (screen_pos.x, screen_pos.y), 10)
-            ent_text = gv.Font.render(f"Pos: {world_pos}", True, (0,0,0))
-            gv.Screen.blit(ent_text, (screen_pos.x, screen_pos.y))
+            draw.world_text(f"Pos: {ent.position}", ent.position, gv.Font2, True, (0,0,0))
 
-        pos_text = gv.Font.render(f"Cam pos: {gv.Camera.position}", True, (0,0,0))
-        gv.Screen.blit(pos_text, (10, 10))
+        draw.screen_text(f"Cam pos: {gv.Camera.position}", Vector2(10,10), gv.Font, True, (0,0,0))
+        draw.screen_text(f"FPS: {int(clock.get_fps())}", Vector2(10,50), gv.Font, True, (0,0,0))
 
+        gv.Camera.update()
         gv.Player.update()
 
         pygame.display.flip()

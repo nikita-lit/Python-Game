@@ -7,8 +7,8 @@ from mathF.vector2 import Vector2
 import global_vars as gv
 from camera import world_to_screen
 
-PLAYER_SPEED = 150
-PLAYER_FRICTION = 15
+PLAYER_SPEED = 180
+PLAYER_FRICTION = 10
 
 class Player(Entity):
     wish_velocity = Vector2()
@@ -39,10 +39,10 @@ class Player(Entity):
         self.position += self.velocity * DELTA_TIME
         self.position.clamp(Vector2(-WORLD_WIDTH,-WORLD_HEIGHT), Vector2(WORLD_WIDTH,WORLD_HEIGHT))
 
-    def draw(self, screen):
-        draw.rect(screen, (255,0,0), 
-                    self.position.x, 
-                    self.position.y, 
-                    self.size.x, 
-                    self.size.y)
+    def draw(self):
+        draw.rect((0,0,200), pygame.Rect(
+            (self.position.x)-(self.size.x/2), 
+            (self.position.y)-(self.size.y/2), 
+            self.size.x, 
+            self.size.y))
 

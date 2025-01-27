@@ -1,3 +1,4 @@
+import draw
 import global_vars as gv
 from pygame.display import update
 from pygame.math import clamp
@@ -16,7 +17,7 @@ class Entity:
         self.position = _position
 
     def draw(self):
-        pass
+        draw.circle((255, 0, 0), self.position, self.size.x)
 
     def update(self):
         self.update_position()
@@ -30,3 +31,7 @@ class Entity:
 
     def set_size(self, vector2):
         self.size = vector2
+
+    def move_to(self, pos):
+        self.position += pos
+        
