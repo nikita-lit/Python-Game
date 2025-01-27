@@ -1,4 +1,5 @@
 import draw
+import math
 import global_vars as gv
 from pygame.display import update
 from pygame.math import clamp
@@ -31,7 +32,4 @@ class Entity:
 
     def set_size(self, vector2):
         self.size = vector2
-
-    def move_to(self, pos):
-        self.position += pos
         

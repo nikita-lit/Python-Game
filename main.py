@@ -47,7 +47,7 @@ def run():
         for ent in gv.Entities:
             ent.draw()
             if not isinstance(ent, Player):
-                ent.move_to(gv.Player.position)
+                ent.set_position( Vector2.move_towards(ent.position, gv.Player.position, 100 * DELTA_TIME) )
 
             draw.world_text(f"Pos: {ent.position}", ent.position, gv.Font2, True, (0,0,0))
 
