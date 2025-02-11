@@ -40,9 +40,6 @@ class Player(Entity):
         self.position.clamp(Vector2(-WORLD_WIDTH,-WORLD_HEIGHT), Vector2(WORLD_WIDTH,WORLD_HEIGHT))
 
     def draw(self, screen):
-        draw.rect(screen, (255,0,0), 
-                    self.position.x, 
-                    self.position.y, 
-                    self.size.x, 
-                    self.size.y)
+        #draw.rect(screen, (0,0,255), pygame.Rect(self.position.x, self.position.y, self.size.x, self.size.y) )
+        draw.circle(screen, (0, 0, 200), self.position, 15)
 

@@ -1,5 +1,5 @@
 ﻿import pygame
-from consts import SCREEN_WIDTH, SCREEN_HEIGHT, WORLD_WIDTH, WORLD_HEIGHT, FPS
+from consts import SCREEN_WIDTH, SCREEN_HEIGHT, WORLD_WIDTH, WORLD_HEIGHT, FPS, DELTA_TIME
 import global_vars as gv
 from player import *
 from mathF.vector2 import *
@@ -18,7 +18,7 @@ def run():
 
     gv.Camera = Camera()
     gv.Player = Player()
-    gv.Player.set_size(Vector2(45,45))
+    gv.Player.set_size(Vector2(35,35))
 
     test_entity = Entity(Vector2(300, 300))
 
@@ -31,27 +31,27 @@ def run():
 
         keys = pygame.key.get_pressed()
         if keys[pygame.K_UP]:
-            gv.Camera.position.y -= 5
+            gv.Camera.position.y -= 700 * DELTA_TIME
         if keys[pygame.K_DOWN]:
-            gv.Camera.position.y += 5
+            gv.Camera.position.y += 700 * DELTA_TIME
         if keys[pygame.K_LEFT]:
-            gv.Camera.position.x -= 5
+            gv.Camera.position.x -= 700 * DELTA_TIME
         if keys[pygame.K_RIGHT]:
-            gv.Camera.position.x += 5
+            gv.Camera.position.x += 700 * DELTA_TIME
 
         if keys[pygame.K_r]:
             gv.Player.position = Vector2()
             gv.Camera.position = Vector2()
 
-        scene_screen_pos = world_to_screen(Vector2(-WORLD_WIDTH, -WORLD_HEIGHT), gv.Camera.position)
-        pygame.draw.rect(gv.Screen, (45,45,45), pygame.Rect(scene_screen_pos.x, scene_screen_pos.y, (WORLD_WIDTH+WORLD_WIDTH), (WORLD_HEIGHT+WORLD_HEIGHT)))
+        draw.rect(gv.Screen, (45,45,45), pygame.Rect(-WORLD_WIDTH, -WORLD_HEIGHT, (WORLD_WIDTH*2), (WORLD_HEIGHT*2)) )
+
+        gv.Entities.sort(key=lambda obj: obj.position.y)
 
         for ent in gv.Entities:
-            world_pos = ent.position
-            screen_pos = world_to_screen(world_pos, gv.Camera.position)
+            ent.draw(gv.Screen)
+            ent_text = gv.Font.render(f"Pos: {ent.position}", True, (0,0,0))
 
-            pygame.draw.circle(gv.Screen, (255, 0, 0), (screen_pos.x, screen_pos.y), 10)
-            ent_text = gv.Font.render(f"Pos: {world_pos}", True, (0,0,0))
+            screen_pos = world_to_screen(ent.position, gv.Camera.position)
             gv.Screen.blit(ent_text, (screen_pos.x, screen_pos.y))
 
         pos_text = gv.Font.render(f"Cam pos: {gv.Camera.position}", True, (0,0,0))

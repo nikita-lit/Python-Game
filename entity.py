@@ -1,4 +1,5 @@
 import global_vars as gv
+import draw
 from pygame.display import update
 from pygame.math import clamp
 from mathF.vector2 import Vector2
@@ -15,8 +16,8 @@ class Entity:
         self.name = self.__class__
         self.position = _position
 
-    def draw(self):
-        pass
+    def draw(self, screen):
+        draw.circle(screen, (255, 0, 0), self.position, 10)
 
     def update(self):
         self.update_position()
