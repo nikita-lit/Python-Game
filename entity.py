@@ -1,3 +1,5 @@
+import draw
+import math
 import global_vars as gv
 import draw
 from pygame.display import update
@@ -16,8 +18,8 @@ class Entity:
         self.name = self.__class__
         self.position = _position
 
-    def draw(self, screen):
-        draw.circle(screen, (255, 0, 0), self.position, 10)
+    def draw(self):
+        draw.circle((255, 0, 0), self.position, self.size.x)
 
     def update(self):
         self.update_position()
@@ -31,3 +33,4 @@ class Entity:
 
     def set_size(self, vector2):
         self.size = vector2
+        

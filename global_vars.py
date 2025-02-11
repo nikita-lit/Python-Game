@@ -6,3 +6,4 @@ Camera = None
 Entities = []
 
 Font = None
+Font2 = None
