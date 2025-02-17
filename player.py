@@ -39,7 +39,6 @@ class Player(Entity):
         self.position += self.velocity * DELTA_TIME
         self.position.clamp(Vector2(-WORLD_WIDTH,-WORLD_HEIGHT), Vector2(WORLD_WIDTH,WORLD_HEIGHT))
 
-    def draw(self, screen):
-        #draw.rect(screen, (0,0,255), pygame.Rect(self.position.x, self.position.y, self.size.x, self.size.y) )
-        draw.circle(screen, (0, 0, 200), self.position, 15)
+    def draw(self):
+        draw.circle((0, 0, 255), self.position, self.size.x)
 
