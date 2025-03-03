@@ -10,6 +10,25 @@ pygame.init()
 
 test_entities = []
 
+ray_start = Vector2(250, 250)
+angle = 0 # Angle of ray
+
+def test_draw():
+    # Update ray direction
+    mouse_pos = get_mouse_world_pos()
+    angle = math.atan2(mouse_pos.y - ray_start.y, mouse_pos.x - ray_start.x)
+
+    ray_length = ray_start.length() - mouse_pos.length()
+
+    # Calculate ray end point
+    ray_end = Vector2(
+        ray_start.x + math.cos(angle) * ray_length,
+        ray_start.y + math.sin(angle) * ray_length
+    )
+
+    # Draw ray
+    draw.line(ray_start, ray_end, 2, (255, 255, 0))
+
 def run():
     gv.Font = pygame.font.Font(None, 36)
     gv.Font2 = pygame.font.Font(None, 22)
@@ -50,7 +69,7 @@ def run():
                 y = random.randint(-WORLD_HEIGHT, WORLD_HEIGHT)
                 ent.set_position(Vector2(x, y))
 
-        draw.rect((45,45,45), pygame.Rect(-WORLD_WIDTH, -WORLD_HEIGHT, (WORLD_WIDTH+WORLD_WIDTH), (WORLD_HEIGHT+WORLD_HEIGHT)), 5)
+        draw.rect(pygame.Rect(-WORLD_WIDTH, -WORLD_HEIGHT, (WORLD_WIDTH+WORLD_WIDTH), (WORLD_HEIGHT+WORLD_HEIGHT)), 5, (45,45,45))
 
         gv.Entities.sort(key=lambda ent:ent.position.y)
 
@@ -67,6 +86,8 @@ def run():
 
         gv.Camera.update()
         gv.Player.update()
+
+        test_draw()
 
         pygame.display.flip()
         clock.tick(FPS)

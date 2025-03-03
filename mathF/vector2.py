@@ -38,7 +38,7 @@ class Vector2():
 
        return Vector2(self.x-vec.x,self.y-vec.y)
 
-   def __div__(self, div):
+   def __truediv__(self, div):
        return Vector2(self.x/div,self.y/div)
 
    def __mul__(self, scalar):

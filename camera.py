@@ -42,5 +42,15 @@ def world_to_screen(world_pos: Vector2):
     screen_pos.y += SCREEN_HEIGHT / 2
     return screen_pos
 
+def screen_to_world(screen_pos: Vector2):
+    relative_pos = screen_pos - Vector2(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
+    world_pos = relative_pos / gv.Camera.zoom
+    world_pos += gv.Camera.position
+    return world_pos
+
+def get_mouse_world_pos():
+    mouse_pos = pygame.mouse.get_pos()
+    return screen_to_world(Vector2(mouse_pos[0], mouse_pos[1]))
+
 def screen_scale(scale: float):
     return scale * gv.Camera.zoom

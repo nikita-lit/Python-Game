@@ -19,7 +19,7 @@ class Entity:
         self.position = _position
 
     def draw(self):
-        draw.circle((255, 0, 0), self.position, self.size.x)
+        draw.circle(self.position, self.size.x, (255, 0, 0))
 
     def update(self):
         self.update_position()
