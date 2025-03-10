@@ -13,9 +13,6 @@ PLAYER_FRICTION = 15
 class Player(Entity):
     wish_velocity = Vector2()
 
-    def __init__(self):
-        super().__init__()
-
     def update(self):
         super().update()
         keys = pygame.key.get_pressed()
@@ -40,5 +37,5 @@ class Player(Entity):
         self.position.clamp(Vector2(-WORLD_WIDTH,-WORLD_HEIGHT), Vector2(WORLD_WIDTH,WORLD_HEIGHT))
 
     def draw(self):
-        draw.circle(self.position, self.size.x, (0, 0, 255))
+        draw.rect(pygame.Rect(self.position.x, self.position.y, self.rect.width, self.rect.height), 0, (255,255,0))
 

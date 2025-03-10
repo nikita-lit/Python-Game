@@ -18,13 +18,15 @@ def test_draw():
     mouse_pos = get_mouse_world_pos()
     angle = math.atan2(mouse_pos.y - ray_start.y, mouse_pos.x - ray_start.x)
 
-    ray_length = ray_start.length() - mouse_pos.length()
+    ray_length = (ray_start - mouse_pos).length()
 
     # Calculate ray end point
     ray_end = Vector2(
         ray_start.x + math.cos(angle) * ray_length,
         ray_start.y + math.sin(angle) * ray_length
     )
+
+    #print(math.degrees(angle))
 
     # Draw ray
     draw.line(ray_start, ray_end, 2, (255, 255, 0))
@@ -40,14 +42,12 @@ def run():
     gv.Running = True
 
     gv.Camera = Camera()
-    gv.Player = Player()
-    gv.Player.set_size(Vector2(35,35))
+    gv.Player = Player(pygame.Rect(0, 0, 35, 35))
 
-    for i in range(5):
+    for i in range(1):
         x = random.randint(-WORLD_WIDTH, WORLD_WIDTH)
         y = random.randint(-WORLD_HEIGHT, WORLD_HEIGHT)
-        test_entity = Entity(Vector2(x, y))
-        test_entity.set_size(Vector2(15, 15))
+        test_entity = Entity(pygame.Rect(0, 0, 25, 25), Vector2(x, y))
         test_entities.append(test_entity)
 
     while gv.Running:
@@ -79,7 +79,7 @@ def run():
                 ent.set_position( Vector2.move_towards(ent.position, gv.Player.position, 100 * DELTA_TIME) )
 
             draw.world_text(f"Pos: {ent.position}", ent.position, gv.Font2, True, (0,0,0))
-
+         
         draw.screen_text(f"Cam pos: {gv.Camera.position}", Vector2(10,10), gv.Font, True, (0,0,0))
         draw.screen_text(f"Cam zoom: {gv.Camera.zoom}", Vector2(10,50), gv.Font, True, (0,0,0))
         draw.screen_text(f"FPS: {int(clock.get_fps())}", Vector2(10,90), gv.Font, True, (0,0,0))
