@@ -74,9 +74,11 @@ def run():
         gv.Entities.sort(key=lambda ent:ent.position.y)
 
         for ent in gv.Entities:
+            ent.update()
             ent.draw()
             if not isinstance(ent, Player):
-                ent.set_position( Vector2.move_towards(ent.position, gv.Player.position, 100 * DELTA_TIME) )
+                ent.move_to(gv.Player, 150)
+                #ent.set_position( Vector2.move_towards(ent.position, gv.Player.position, 100 * DELTA_TIME) )
 
             draw.world_text(f"Pos: {ent.position}", ent.position, gv.Font2, True, (0,0,0))
          
@@ -85,7 +87,6 @@ def run():
         draw.screen_text(f"FPS: {int(clock.get_fps())}", Vector2(10,90), gv.Font, True, (0,0,0))
 
         gv.Camera.update()
-        gv.Player.update()
 
         test_draw()
 

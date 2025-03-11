@@ -13,6 +13,9 @@ class Vector2():
    def length(self):
         return math.sqrt(self.x ** 2 + self.y ** 2)
 
+   def is_near_to_zero(self, threshold=1e-6):
+        return math.isclose(self.x, 0, abs_tol=threshold) and math.isclose(self.y, 0, abs_tol=threshold)
+
    def clamp(self, vec1, vec2):
        self.x = clamp(self.x, vec1.x, vec2.x)
        self.y = clamp(self.y, vec1.y, vec2.y)
@@ -39,7 +42,9 @@ class Vector2():
        return Vector2(self.x-vec.x,self.y-vec.y)
 
    def __truediv__(self, div):
-       return Vector2(self.x/div,self.y/div)
+       x = self.x/div
+       y = self.y/div
+       return Vector2(x,y)
 
    def __mul__(self, scalar):
        return Vector2(self.x*scalar,self.y*scalar)
@@ -53,17 +58,26 @@ class Vector2():
 
    @staticmethod
    def move_towards(start, target, speed):
-       direction = Vector2(target.x - start.x, target.y - start.y)
-       distance = math.sqrt(direction.x**2 + direction.y**2)
+       direction = target - start
+       distance = direction.length()
 
        if distance < speed:
            return target
 
-       direction.x /= distance
-       direction.y /= distance
+       direction /= distance
        start += direction * speed
         
        return start
+
+   @staticmethod
+   def direction(start, target):
+       direction = target - start
+       distance = math.sqrt(direction.x**2 + direction.y**2)
+
+       direction /= distance
+
+       return direction
+
 
 
 

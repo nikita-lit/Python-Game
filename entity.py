@@ -17,9 +17,11 @@ def ents_collide(ent1, ent2):
     )
 
 class Entity:
-    position = Vector2(0, 0)
+    position = Vector2()
     rect = None
-    velocity = Vector2(0, 0)
+    velocity = Vector2()
+    wish_velocity = Vector2()
+    friction = 15
     name = ""
 
     def __init__(self, _rect, _position = Vector2()):
@@ -33,15 +35,19 @@ class Entity:
 
     def update(self):
         self.update_position()
-
+   
     def update_position(self):
+        self.velocity = Vector2.lerp(self.velocity, self.wish_velocity, (self.friction/100))
         self.position += self.velocity * DELTA_TIME
         self.position.clamp(Vector2(-WORLD_WIDTH,-WORLD_HEIGHT), Vector2(WORLD_WIDTH,WORLD_HEIGHT))
 
-        for ent in gv.Entities:
-            if ents_collide(self, ent):
-                direction = self.position - ent.position
-                print(direction)
+        #for ent in gv.Entities:
+            #if ents_collide(self, ent):
+
+    def move_to(self, ent, speed):
+        direction = Vector2.direction(self.position, ent.position)
+        #if not direction.is_near_to_zero():
+            #self.wish_velocity = direction * speed
     
     def set_position(self, vector2):
         self.position = vector2

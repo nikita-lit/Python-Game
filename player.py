@@ -11,8 +11,6 @@ PLAYER_SPEED = 150
 PLAYER_FRICTION = 15
 
 class Player(Entity):
-    wish_velocity = Vector2()
-
     def update(self):
         super().update()
         keys = pygame.key.get_pressed()
